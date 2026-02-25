@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Providers from "@/components/Providers";
 
 export const metadata: Metadata = {
   title: "ReceiptMatch — Auto-Match Receipts to Bank Transactions",
@@ -45,7 +46,7 @@ export default function RootLayout({
         className="bg-white text-gray-900 antialiased"
         style={{ fontFamily: "'Inter', system-ui, -apple-system, sans-serif" }}
       >
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
