@@ -8,10 +8,16 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-gray-100 bg-white/80 backdrop-blur-md">
+    <nav className="sticky top-0 z-50 border-b border-gray-100/80 glass">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link href="/" className="text-xl font-bold text-gray-900">
-          ReceiptMatch
+        <Link href="/" className="flex items-center gap-2">
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-600 to-violet-600">
+            <svg className="h-4 w-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M9 12l2 2 4-4" />
+              <rect x="3" y="3" width="18" height="18" rx="3" />
+            </svg>
+          </div>
+          <span className="text-xl font-bold text-gray-900">ReceiptMatch</span>
         </Link>
 
         {/* Desktop links */}
@@ -36,7 +42,7 @@ export default function Navbar() {
           </a>
           <Link
             href="/dashboard"
-            className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700 transition"
+            className="rounded-lg bg-gradient-to-r from-indigo-600 to-violet-600 px-5 py-2.5 text-sm font-bold text-white shadow-sm shadow-indigo-200 transition hover:shadow-md hover:brightness-110"
           >
             Open App
           </Link>

@@ -103,36 +103,38 @@ export default function Pricing() {
           {tiers.map((tier) => (
             <div
               key={tier.name}
-              className={`relative rounded-2xl border p-8 transition ${
+              className={`card-hover relative rounded-2xl border p-8 ${
                 tier.highlighted
-                  ? "border-indigo-600 shadow-xl shadow-indigo-100 ring-1 ring-indigo-600"
-                  : "border-gray-200 hover:shadow-md"
+                  ? "border-indigo-600 bg-gradient-to-b from-indigo-50/50 to-white shadow-xl shadow-indigo-100/50 ring-1 ring-indigo-600 scale-[1.02]"
+                  : "border-gray-200 bg-white"
               }`}
             >
               {tier.badge && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-indigo-600 px-4 py-1 text-xs font-bold text-white">
+                <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-indigo-600 to-violet-600 px-5 py-1.5 text-xs font-bold text-white shadow-lg shadow-indigo-200">
                   {tier.badge}
                 </span>
               )}
-              <h3 className="text-lg font-semibold text-gray-900">
+              <h3 className="text-lg font-bold text-gray-900">
                 {tier.name}
               </h3>
               <p className="mt-1 text-sm text-gray-500">{tier.description}</p>
               <div className="mt-6 flex items-baseline gap-1">
-                <span className="text-4xl font-extrabold text-gray-900">
+                <span className="text-5xl font-extrabold text-gray-900">
                   {tier.price[cycle]}
                 </span>
                 {tier.period && (
-                  <span className="text-sm text-gray-500">
+                  <span className="text-sm font-medium text-gray-400">
                     {tier.period[cycle]}
                   </span>
                 )}
               </div>
 
-              <ul className="mt-8 space-y-3">
+              <div className="my-8 h-px bg-gray-100" />
+
+              <ul className="space-y-4">
                 {tier.features.map((f) => (
                   <li key={f} className="flex items-start gap-3 text-sm text-gray-700">
-                    <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-indigo-600" />
+                    <Check className={`mt-0.5 h-4 w-4 flex-shrink-0 ${tier.highlighted ? "text-indigo-600" : "text-emerald-500"}`} />
                     {f}
                   </li>
                 ))}
@@ -140,10 +142,10 @@ export default function Pricing() {
 
               <Link
                 href={tier.href}
-                className={`mt-8 block w-full rounded-lg py-3 text-center text-sm font-semibold transition ${
+                className={`mt-8 block w-full rounded-xl py-3.5 text-center text-sm font-bold transition-all ${
                   tier.highlighted
-                    ? "bg-indigo-600 text-white hover:bg-indigo-700"
-                    : "border border-gray-300 bg-white text-gray-700 hover:bg-gray-50"
+                    ? "btn-shimmer bg-indigo-600 text-white shadow-lg shadow-indigo-200 hover:bg-indigo-700 hover:shadow-xl"
+                    : "border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 hover:border-gray-300"
                 }`}
               >
                 {tier.cta}

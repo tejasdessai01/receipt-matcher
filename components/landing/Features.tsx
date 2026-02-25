@@ -13,36 +13,48 @@ const features = [
     title: "OCR Receipt Scanning",
     description:
       "Upload photos or scans of receipts. Our OCR engine extracts vendor, amount, and date automatically.",
+    gradient: "from-indigo-500 to-indigo-600",
+    bg: "bg-indigo-50",
   },
   {
     icon: FileSpreadsheet,
     title: "Any Bank CSV Format",
     description:
       "Works with exports from Chase, Bank of America, Wells Fargo, QuickBooks, and any standard CSV format.",
+    gradient: "from-violet-500 to-violet-600",
+    bg: "bg-violet-50",
   },
   {
     icon: Zap,
     title: "Instant Fuzzy Matching",
     description:
       "Our algorithm matches receipts to transactions using vendor name similarity, amount, and date proximity.",
+    gradient: "from-amber-500 to-orange-500",
+    bg: "bg-amber-50",
   },
   {
     icon: Download,
     title: "One-Click Export",
     description:
       "Export your matched results as a clean CSV ready for your accountant or bookkeeping software.",
+    gradient: "from-emerald-500 to-emerald-600",
+    bg: "bg-emerald-50",
   },
   {
     icon: Shield,
     title: "Private & Secure",
     description:
       "Your financial data is processed in the browser. Nothing is stored on our servers. Zero data retention.",
+    gradient: "from-sky-500 to-sky-600",
+    bg: "bg-sky-50",
   },
   {
     icon: Clock,
     title: "Save 3-6 Hours/Month",
     description:
       "What used to take hours of tedious spreadsheet work now takes under 60 seconds. Seriously.",
+    gradient: "from-rose-500 to-pink-500",
+    bg: "bg-rose-50",
   },
 ];
 
@@ -63,17 +75,19 @@ export default function Features() {
           </p>
         </div>
 
-        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((f) => (
             <div
               key={f.title}
-              className="rounded-xl border border-gray-100 bg-gray-50 p-6 transition hover:shadow-md"
+              className="card-hover group rounded-2xl border border-gray-100 bg-white p-7 shadow-sm"
             >
-              <div className="mb-4 inline-flex rounded-lg bg-indigo-100 p-3">
-                <f.icon className="h-6 w-6 text-indigo-600" />
+              <div
+                className={`mb-5 inline-flex rounded-2xl ${f.bg} p-3.5 transition-transform group-hover:scale-110`}
+              >
+                <f.icon className={`h-6 w-6 bg-gradient-to-br ${f.gradient} bg-clip-text`} style={{ color: 'currentColor' }} />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900">{f.title}</h3>
-              <p className="mt-2 text-sm leading-6 text-gray-600">
+              <h3 className="text-lg font-bold text-gray-900">{f.title}</h3>
+              <p className="mt-2 text-sm leading-6 text-gray-500">
                 {f.description}
               </p>
             </div>
